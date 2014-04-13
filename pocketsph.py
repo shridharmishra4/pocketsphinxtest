@@ -47,12 +47,16 @@ def record():
 	                frames_per_buffer = chunk)
 	
 	print "* recording"
+	
+	#plays beep
 	os.system("aplay beep_hi.wav")
 	
 	all = []
 	for i in range(0, RATE / chunk * RECORD_SECONDS):
 	    data = stream.read(chunk)
 	    all.append(data)
+	    
+	#plays low beep
 	os.system("aplay beep_lo.wav")
 	
 	print "* done recording"
